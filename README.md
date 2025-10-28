@@ -10,14 +10,12 @@ Tech stack
 - APScheduler
 - Prometheus client (metrics) + Grafana
 
-Quickstart (local, using Docker Compose)
-1. Copy `.env.example` to `.env` and edit env vars.
-2. Start services:
+step1. Start services:
 ```bash
 docker compose up --build
 ```
-3. Open the API at http://localhost:8000/docs
-4. Prometheus metrics exposed at http://localhost:8000/metrics
+step2. Open the API at http://localhost:8000/docs
+step3. Prometheus metrics exposed at http://localhost:8000/metrics
 
 What I included
 - Project scaffold (FastAPI app)
@@ -29,7 +27,7 @@ What I included
 - Basic alerting module (Slack webhook placeholder)
 - Docker Compose for local dev (Postgres, Redis, Zookeeper, Kafka)
 
-Next steps (suggested)
+Next steps
 - Add Alembic migrations
 - Add more robust alerting channels (PagerDuty, email)
 - Add Grafana dashboard JSON and sample Prometheus scrape config
