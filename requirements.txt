@@ -9,6 +9,7 @@ prometheus-client==0.16.0
 kafka-python==2.1.0
 redis==5.0.10
 pydantic==1.10.11
+pydantic-settings==2.0.3
 python-dotenv==1.0.1
 structlog==23.1.0
 redis==5.0.10

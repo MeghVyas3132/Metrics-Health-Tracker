@@ -14,7 +14,7 @@ class ServiceRead(ServiceCreate):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class CheckRead(BaseModel):
@@ -26,4 +26,4 @@ class CheckRead(BaseModel):
     error: Optional[str]
 
     class Config:
-        orm_mode = True
+        from_attributes = True

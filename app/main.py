@@ -8,13 +8,14 @@ from .schemas import ServiceCreate, ServiceRead, CheckRead
 from .scheduler import start_scheduler, add_service_job, remove_service_job
 from .config import settings
 
-Base.metadata.create_all(bind=engine)
-
 app = FastAPI(title="HealthTrack")
 
 
 @app.on_event("startup")
 def on_startup():
+    # Create DB tables if not present
+    Base.metadata.create_all(bind=engine)
+    
     # configure logging
     from .logging_config import configure_logging
 
