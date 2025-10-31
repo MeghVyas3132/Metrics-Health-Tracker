@@ -35,6 +35,10 @@ def start_scheduler():
                 id=f"service_{s.id}",
                 replace_existing=True,
             )
+    except Exception as e:
+        # If DB is not available, start scheduler without jobs
+        # Jobs will be added when services are created via API
+        print(f"Warning: Could not load services from DB: {e}")
     finally:
         db.close()
 
