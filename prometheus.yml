@@ -1,9 +1,25 @@
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
+  external_labels:
+    monitor: 'healthtrack-monitor'
 
 scrape_configs:
-  - job_name: 'healthtrack'
+  # Scrape Prometheus itself
+  - job_name: 'prometheus'
     static_configs:
-      - targets: ['app:8000']
+      - targets: ['localhost:9090']
+
+  # Scrape backend API metrics (update port if different)
+  - job_name: 'healthtrack-backend'
+    static_configs:
+      # macOS/Docker Desktop - use host.docker.internal
+      - targets: ['host.docker.internal:8000']
+      # For Linux - use localhost:8000
     metrics_path: '/metrics'
+    scrape_interval: 5s
+
+  # Scrape Grafana itself
+  - job_name: 'grafana'
+    static_configs:
+      - targets: ['grafana:3000']
