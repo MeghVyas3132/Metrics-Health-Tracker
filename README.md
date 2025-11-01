@@ -1,63 +1,77 @@
-# 🚀 HealthTrack - Production-Ready SRE Monitoring Dashboard
+<div align="center">
 
-A **complete, enterprise-grade health monitoring and SRE metrics dashboard** for tracking services, APIs, and microservices with professional-grade SLO tracking, Prometheus integration, and Grafana visualization.
+# HealthTrack: Enterprise-Grade SRE Monitoring Dashboard
 
-**[Status: Production Ready ✅ • 9 Docker Services • Full SRE Metrics Stack]**
+<p align="center">
+  <a href="https://github.com/MeghVyas3132/Metrics-Health-Tracker/stargazers"><img src="https://img.shields.io/github/stars/MeghVyas3132/Metrics-Health-Tracker?style=for-the-badge&color=blue" alt="Stars"></a>
+  <a href="https://github.com/MeghVyas3132/Metrics-Health-Tracker/network/members"><img src="https://img.shields.io/github/forks/MeghVyas3132/Metrics-Health-Tracker?style=for-the-badge&color=green" alt="Forks"></a>
+  <a href="https://github.com/MeghVyas3132/Metrics-Health-Tracker/issues"><img src="https://img.shields.io/github/issues/MeghVyas3132/Metrics-Health-Tracker?style=for-the-badge&color=orange" alt="Issues"></a>
+  <a href="#"><img src="https://img.shields.io/badge/status-production_ready-brightgreen?style=for-the-badge" alt="Status"></a>
+  <a href="#"><img src="https://img.shields.io/badge/docker_services-9-blue?style=for-the-badge" alt="Docker Services"></a>
+</p>
 
----
+A complete, enterprise-grade health monitoring and SRE metrics dashboard for tracking services, APIs, and microservices with professional-grade SLO tracking, Prometheus integration, and Grafana visualization.
 
-## � Features at a Glance
-
-- **Real-time SRE Dashboard** - Color-coded health indicators (🟢/🟡/🔴) with all metrics visible
-- **Production-Grade Metrics** - P95/P99 latencies, Apdex score, error rates, uptime tracking
-- **Professional Visualization** - Grafana dashboards with time-series graphs
-- **Prometheus Integration** - Automatic metrics export and scraping
-- **Smart Alerts** - Multi-signal alerting (status + Apdex + error rate)
-- **Kafka Event Streaming** - Real-time event publishing
-- **Type-Safe Code** - TypeScript frontend, Python 3.11 backend with Pydantic
-- **Docker Ready** - One-command deployment with 9 microservices
+</div>
 
 ---
 
-## 🎯 What It Does
+## Features at a Glance
 
-**HealthTrack** is a complete monitoring solution that:
-
-1. **Monitors Services** - Performs periodic HTTP health checks on any URL
-2. **Calculates SRE Metrics** - Computes P95/P99 latencies, Apdex scores, error rates, uptime %
-3. **Displays Real-Time Dashboard** - Shows all metrics in a beautiful dark-themed UI
-4. **Stores Time-Series Data** - Prometheus database for historical analysis
-5. **Visualizes Trends** - Grafana dashboards for deep analysis
-6. **Triggers Alerts** - Redis-backed deduplication with Slack webhooks
-7. **Streams Events** - Kafka topics for real-time integrations
+-   **Real-time SRE Dashboard**: Color-coded health indicators with all key metrics visible on a single pane of glass.
+-   **Production-Grade Metrics**: Tracks P95/P99 latencies, Apdex score, error rates, and uptime.
+-   **Professional Visualization**: Pre-built Grafana dashboards for deep-diving into time-series data.
+-   **Prometheus Integration**: Automatically exports and scrapes metrics for historical analysis and alerting.
+-   **Smart Alerts**: Multi-signal alerting logic (status + Apdex + error rate) with Redis-backed deduplication.
+-   **Kafka Event Streaming**: Publishes health check results to Kafka topics for real-time, event-driven integrations.
+-   **Type-Safe Code**: Built with a TypeScript frontend and a Python 3.11 backend with Pydantic for robust, error-free development.
+-   **Docker Ready**: Deploy the entire 9-service stack with a single `docker compose up` command.
 
 ---
 
-## 🚀 Quick Start
+## What It Does
+
+**HealthTrack** is an all-in-one monitoring solution designed to provide immediate, actionable insights into your system's health.
+
+1.  **Monitors Services**: Performs periodic, configurable HTTP health checks on any URL.
+2.  **Calculates SRE Metrics**: Computes essential SRE metrics like P95/P99 latencies, Apdex scores, error rates, and uptime percentages.
+3.  **Displays a Real-Time Dashboard**: Shows all metrics in a sleek, dark-themed UI that auto-refreshes.
+4.  **Stores Time-Series Data**: Uses a Prometheus time-series database for robust historical analysis.
+5.  **Visualizes Trends**: Integrates with Grafana, providing beautiful, pre-configured dashboards to analyze trends.
+6.  **Triggers Smart Alerts**: Sends alerts via Slack webhooks, with intelligent deduplication to prevent alert fatigue.
+7.  **Streams Health Events**: Pushes check results to Kafka for consumption by other services or analytics platforms.
+
+---
+
+## Quick Start
 
 ### With Docker (Recommended)
 
-```bash
-# 1. Clone repository
-git clone https://github.com/MeghVyas3132/Metrics-Health-Tracker.git
-cd healthtrack
+Get the entire stack running in minutes.
 
-# 2. Set up environment
+```bash
+# 1. Clone the repository
+git clone https://github.com/MeghVyas3132/Metrics-Health-Tracker.git
+cd Metrics-Health-Tracker
+
+# 2. Set up your environment
 cp .env.example .env
 
-# 3. Start full stack
+# 3. Start the full stack
 docker compose up --build -d
 
-# 4. Open dashboards
-# Frontend: http://localhost:3000
-# Grafana: http://localhost:3001
-# API Docs: http://localhost:8000/docs
-# Prometheus: http://localhost:9090
+# 4. Access the services
+#    - Frontend Dashboard: http://localhost:3000
+#    - Grafana: http://localhost:3001
+#    - API Docs (Swagger): http://localhost:8000/docs
+#    - Prometheus: http://localhost:9090
 ```
 
 ### Local Development
 
-**Backend:**
+Instructions for running the frontend and backend services separately.
+
+**Backend (FastAPI):**
 ```bash
 python -m venv venv
 source venv/bin/activate
@@ -65,7 +79,7 @@ pip install -r requirements.txt
 PYTHONPATH=. uvicorn app.main:app --reload
 ```
 
-**Frontend:**
+**Frontend (Next.js):**
 ```bash
 cd frontend
 npm install
@@ -74,126 +88,100 @@ npm run dev
 
 ---
 
-## � Dashboard Preview
+## Architecture
 
-```
-┌─────────────────────────────────────────────────────┐
-│ HealthTrack                        [+ Add Service]  │
-│ SRE Dashboard • Service Health Monitoring           │
-│                                                     │
-│ Services: 4    Healthy: 4    Issues: 0              │
-└─────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────┐
-│ 🟢 GitHub API                     [Delete ❌]      │
-│    https://api.github.com                           │
-├─────────────────────────────────────────────────────┤
-│ LATENCY:                                            │
-│  [730ms]  [986ms]  [986ms]  [1.0]                  │
-│   Avg      P95      P99     Apdex                  │
-├─────────────────────────────────────────────────────┤
-│ METRICS:                                            │
-│  [0.0%]   [100%]   [0.13/m]  [0.002/s]            │
-│   Error   Uptime   ReqRate   Throughput            │
-├─────────────────────────────────────────────────────┤
-│ 9 checks • Last: 11:46:26       [View Grafana →]  │
-└─────────────────────────────────────────────────────┘
-```
-
----
-
-## 🏗️ Architecture
-
-### Complete System
+HealthTrack is composed of 9 microservices, orchestrated by Docker Compose.
 
 ```
 ┌──────────────────────────────────┐
 │  HealthTrack Dashboard (Next.js) │
-│        :3000                     │
+│        (Port :3000)              │
 └───────────┬──────────────────────┘
-            │ REST API
+            │ (REST API Calls)
             ▼
 ┌──────────────────────────────────┐
 │   FastAPI Backend + SRE Engine   │
-│        :8000                     │
+│        (Port :8000)              │
 ├──────────┬──────────┬────────────┤
 │          │          │            │
 ▼          ▼          ▼            ▼
-DB      Redis    Prometheus    Kafka
-         
+PostgreSQL  Redis    Prometheus    Kafka
+(Storage) (Alerting) (Metrics)    (Events)
            ▲          ▲
            │          │
        APScheduler   Grafana
-      (Health Checks) :3001
+    (Health Checks) (Visualization)
 ```
 
-### Services (9 Total)
-
-1. **PostgreSQL 15** - Persistent storage
-2. **Redis 7** - Alert deduplication
-3. **Zookeeper 7.4** - Kafka coordination
-4. **Kafka 7.4** - Event streaming
-5. **FastAPI Backend** - Core app + metrics
-6. **Next.js Frontend** - Dashboard UI
-7. **Prometheus** - Time-series database
-8. **Grafana** - Visualization
-9. **Docker Network** - Communication layer
+-   **Services (9 Total)**:
+    1.  **PostgreSQL 15**: Persistent storage for services and checks.
+    2.  **Redis 7**: Caching and alert deduplication.
+    3.  **Zookeeper**: Kafka coordination.
+    4.  **Kafka**: Event streaming for health data.
+    5.  **FastAPI Backend**: Core application logic, SRE metric calculation, and API.
+    6.  **Next.js Frontend**: The user-facing dashboard.
+    7.  **Prometheus**: Time-series database for metrics.
+    8.  **Grafana**: Data visualization and dashboards.
+    9.  **Docker Network**: Provides the communication layer between services.
 
 ---
 
-## 📈 SRE Metrics
+## Tech Stack
 
-Each service tracks **8 professional metrics**:
+### Frontend
+- **Framework**: Next.js 14 (with App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion
+- **Icons**: Lucide React
+- **HTTP Client**: Axios
 
-| Metric | Description | Green | Yellow | Red |
-|--------|-------------|-------|--------|-----|
-| **Avg Latency** | Mean response time | ≤1000ms | 1-1.5s | >1.5s |
-| **P95 Latency** | 95th percentile | ≤1500ms | 1.5-2.2s | >2.2s |
-| **P99 Latency** | 99th percentile | ≤2000ms | 2-3s | >3s |
-| **Apdex Score** | User satisfaction (0-1) | ≥0.8 | 0.6-0.8 | <0.6 |
-| **Error Rate** | % of failed requests | ≤2% | 2-5% | >5% |
-| **Uptime (24h)** | Availability % | ≥95% | 90-95% | <90% |
-| **Request Rate** | Checks per minute | Shows traffic | Shows load | Shows spikes |
-| **Throughput** | Requests per second | Shows capacity | Shows load | Shows spikes |
+### Backend
+- **Framework**: FastAPI
+- **Language**: Python 3.11
+- **Database**: PostgreSQL 15 with SQLAlchemy (ORM)
+- **Data Validation**: Pydantic 2.4
+- **Background Jobs**: APScheduler
+- **Messaging**: Kafka
+- **Caching**: Redis
+- **Metrics**: Prometheus Client
+
+### Infrastructure
+- **Containerization**: Docker & Docker Compose
+- **Monitoring**: Prometheus & Grafana
+- **Base OS**: Linux/Alpine
 
 ---
 
-## 📡 API Endpoints
+## SRE Metrics Tracked
 
-### Services
+Each service tracks 8 professional-grade metrics, with configurable thresholds.
 
-```bash
-# List all services
-GET /services
+| Metric         | Description                 | Green   | Yellow    | Red    |
+| :------------- | :-------------------------- | :------ | :-------- | :----- |
+| **Avg Latency**  | Mean response time          | ≤1000ms | 1-1.5s    | >1.5s  |
+| **P95 Latency**  | 95th percentile latency     | ≤1500ms | 1.5-2.2s  | >2.2s  |
+| **P99 Latency**  | 99th percentile latency     | ≤2000ms | 2-3s      | >3s    |
+| **Apdex Score**  | User satisfaction (0-1)     | ≥0.8    | 0.6-0.8   | <0.6   |
+| **Error Rate**   | Percentage of failed checks | ≤2%     | 2-5%      | >5%    |
+| **Uptime (24h)** | Service availability %      | ≥95%    | 90-95%    | <90%   |
+| **Request Rate** | Checks per minute           | Shows traffic load | | |
+| **Throughput**   | Requests per second         | Shows service capacity | | |
 
-# Create service
-POST /services
-{
-  "name": "GitHub API",
-  "url": "https://api.github.com",
-  "interval_seconds": 30,
-  "timeout_seconds": 5
-}
+---
 
-# Delete service
-DELETE /services/{id}
-```
+## API Endpoints
 
-### Metrics
+A RESTful API is available to manage services and retrieve metrics.
 
-```bash
-# Get service metrics summary (used by dashboard)
-GET /services/{id}/metrics-summary
+- `GET /services`: List all monitored services.
+- `POST /services`: Create a new service to monitor.
+- `DELETE /services/{id}`: Delete a service.
+- `GET /services/{id}/metrics-summary`: Get a complete metrics summary for a service.
+- `GET /services/{id}/checks-detailed`: Get recent raw health check data.
+- `GET /metrics`: Expose metrics in Prometheus format.
 
-# Get recent checks with metrics
-GET /services/{id}/checks-detailed?limit=10
-
-# Get Prometheus metrics
-GET /metrics
-```
-
-### Example Response
-
+**Example Response (`GET /services/{id}/metrics-summary`)**:
 ```json
 {
   "service_id": 1,
@@ -206,92 +194,44 @@ GET /metrics
   "uptime_percent_24h": 100.0,
   "request_rate_rpm": 0.13,
   "throughput_rps": 0.0022,
-  "apdex_score": 1.0,
-  "checks_count": 9,
-  "last_check_timestamp": "2025-10-31T11:46:26Z"
+  "apdex_score": 1.0
 }
 ```
 
 ---
 
-## 🛠️ Tech Stack
-
-### Frontend
-- **Next.js 14** - React framework with SSR
-- **TypeScript** - Type-safe components
-- **Tailwind CSS** - Utility-first styling
-- **Framer Motion** - Animations
-- **Lucide React** - Icons
-- **Axios** - HTTP client
-
-### Backend
-- **FastAPI 0.104** - Modern async Python
-- **PostgreSQL 15** - Data persistence
-- **SQLAlchemy 1.4** - ORM
-- **Pydantic 2.4** - Type validation
-- **APScheduler 3.10** - Background jobs
-- **Prometheus Client** - Metrics export
-- **Kafka 7.4** - Event streaming
-- **Redis 7** - Caching & deduplication
-
-### Infrastructure
-- **Docker** - Containerization
-- **Docker Compose** - Orchestration
-- **Prometheus** - Time-series DB
-- **Grafana** - Visualization
-- **Linux/Alpine** - Base OS
-
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 .
-├── app/                          # FastAPI Backend
-│   ├── main.py                   # Entry point & routes
-│   ├── models.py                 # SQLAlchemy ORM
-│   ├── schemas.py                # Pydantic models
-│   ├── healthchecker.py          # SRE metrics calculation
-│   ├── scheduler.py              # APScheduler setup
-│   ├── metrics.py                # Prometheus registry
-│   ├── alerts.py                 # Alert logic
-│   ├── kafka_producer.py         # Event publishing
-│   └── redis_client.py           # Cache layer
+├── app/                  # FastAPI Backend Source
+│   ├── main.py           # API routes and entry point
+│   ├── models.py         # SQLAlchemy ORM models
+│   ├── schemas.py        # Pydantic data schemas
+│   ├── healthchecker.py  # SRE metrics calculation engine
+│   ├── scheduler.py      # Background job scheduler (APScheduler)
+│   └── ...
 │
-├── frontend/                     # Next.js Dashboard
+├── frontend/             # Next.js Frontend Source
 │   ├── src/app/
-│   │   ├── page.tsx              # Main dashboard
-│   │   └── layout.tsx            # Root layout
-│   ├── src/lib/api.ts            # API client
-│   └── tailwind.config.js        # Styling
+│   │   ├── page.tsx      # Main dashboard UI
+│   │   └── layout.tsx    # Root layout and styling
+│   └── ...
 │
-├── grafana-provisioning/         # Pre-built Dashboards
-│   ├── datasources/              # Prometheus config
-│   └── dashboards/               # Dashboard JSON
+├── grafana-provisioning/ # Pre-built Grafana dashboards and datasources
 │
-├── docker-compose.yml            # 9 services
-├── prometheus.yml                # Scrape config
-├── Dockerfile                    # Backend image
-├── requirements.txt              # Python deps
-└── README.md                     # This file
+├── docker-compose.yml    # Orchestrates all 9 services
+├── prometheus.yml        # Prometheus scrape configuration
+├── Dockerfile            # Docker image for the backend
+└── README.md             # You are here!
 ```
 
 ---
 
-## 🎯 Use Cases
+## Contributing
 
-### On-Call Engineer
-> "Which services are down? What's the severity?"
-**→** Color-coded dashboard with health emojis (🟢/🟡/�)
+Contributions are welcome! Please feel free to submit a pull request or open an issue.
 
-### SRE Manager
-> "Are we meeting our SLO targets?"
-**→** Uptime %, error rate, Apdex visible per service
+## License
 
-### Performance Engineer
-> "Why is this service slow?"
-**→** P95/P99 latencies show tail behavior instantly
-
-### Capacity Planner
-> "Which services are under load?"
-**→** Request rate + throughput metrics
+This project is licensed under the MIT License. See the `LICENSE` file for details.
